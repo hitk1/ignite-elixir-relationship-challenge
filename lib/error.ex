@@ -10,6 +10,6 @@ defmodule Exmeal.Error do
     }
   end
 
-  def build_meal_not_found_error, do: build()
-  def build_user_not_found_error, do: build()
+  def build_meal_not_found_error, do: build(1, 2)
+  def build_user_not_found_error, do: build(1, 2)
 end
