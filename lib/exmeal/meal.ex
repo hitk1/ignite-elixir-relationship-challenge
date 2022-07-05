@@ -15,14 +15,27 @@ defmodule Exmeal.Meal do
     field :description, :string
     field :date, :date
     field :calories, :integer
+    field :user_id, :string, virtual: true
 
     belongs_to :users, User
     timestamps()
   end
 
-  def changeset(params \\ %__MODULE__{}, params) do
+  def changeset(params) do
     %__MODULE__{}
     |> cast(params, @required_params)
     |> validate_required(@required_params)
   end
+
+  def changetset(struct, params) do
+    struct
+    |> cast(params, @required_params)
+    |> validate_required(@required_params)
+  end
+
+  # def changeset(params \\ %__MODULE__{}, params) do
+  #   %__MODULE__{}
+  #   |> cast(params, @required_params)
+  #   |> validate_required(@required_params)
+  # end
 end
