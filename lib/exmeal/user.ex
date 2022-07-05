@@ -21,8 +21,14 @@ defmodule Exmeal.User do
     timestamps()
   end
 
-  def changeset(params \\ %__MODULE__{}) do
+  def changeset(params) do
     %__MODULE__{}
+    |> cast(params, @required_params)
+    |> validate_required(@required_params)
+  end
+
+  def changeset(struct, params) do
+    struct
     |> cast(params, @required_params)
     |> validate_required(@required_params)
   end
